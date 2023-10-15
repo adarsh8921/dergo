@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteRule ^test(.*)$ trial.php$1 [L,QSA]
+
+# Also tried this, didn't work
+# RewriteRule ^test/(.*)$ trial.php/$1 [L,QSA]
+
+# Rewrite rule to remove index.php of codeigniter
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
